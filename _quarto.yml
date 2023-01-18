@@ -7,9 +7,13 @@ book:
   date: "12/28/2022"
   chapters:
     - index.qmd
-    - intro.qmd
-    - summary.qmd
-    - references.qmd
+    - ttl_1_poolbeg.qmd
+    - ttl_2_north_bull.qmd
+    - ttl_3_dun_laoghaire_1.qmd
+    - ttl_4_howth_1.qmd
+
+    #- summary.qmd
+    #- references.qmd
 
 bibliography: references.bib
 
@@ -20,4 +24,3 @@ format:
     documentclass: scrreprt
 
 editor: visual
-
