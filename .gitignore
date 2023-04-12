@@ -5,3 +5,5 @@
 under_the_hood.qmd
 /.quarto/
 /_site/
+/_book/
+.DS_Store
