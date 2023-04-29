@@ -3,9 +3,9 @@ project:
   always_allow_html: true
 
 book:
-  title: "To the lighthouse"
-  author: "Des Ryan"
-  date: "2022-23"
+  title: To the lighthouse
+  author: Des Ryan
+  date: 2022-23
   chapters:
     - index.qmd
     - ttl_1_poolbeg.qmd
