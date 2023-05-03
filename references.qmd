@@ -1,6 +1,9 @@
 # References {.unnumbered}
 
 ::: {#refs}
+Pete's lighthouses
+
+http://irishlighthouses.blogspot.com/
 :::
 
 Poolbeg References

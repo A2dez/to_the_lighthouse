@@ -1,11 +1,10 @@
 project:
   type: book
   always_allow_html: true
-
 book:
-  title: "To the lighthouse"
-  author: "Des Ryan"
-  date: "12/28/2022"
+  title: To the lighthouse
+  author: Des Ryan
+  date: 12/28/2022
   chapters:
     - index.qmd
     - ttl_1_poolbeg.qmd
@@ -14,16 +13,10 @@ book:
     - ttl_4_howth_1.qmd
     - ttl_5_wicklow.qmd
     - ttl_6_balbriggan.qmd
-
-    #- summary.qmd
-    #- references.qmd
-
 bibliography: references.bib
-
 format:
   html:
     theme: minty
   pdf:
     documentclass: scrreprt
-
 editor: visual
