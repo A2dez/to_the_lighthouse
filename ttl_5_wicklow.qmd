@@ -3,7 +3,7 @@ title: "Wicklow Head"
 editor: visual
 ---
 
-![*The defunct old lighthouse is on the highest point of Wicklow Head, and is used to accommodate tourists nowadays, whereas the less impressive functional one right on the coast.* ](images/rear_lighthouse_sunset_20230116_161238.jpg){alt="It'd be rude not to include a snap of sunset."}
+![*The defunct old lighthouse is on the highest point of Wicklow Head, and is used to accommodate tourists nowadays, whereas the less impressive functional one right on the coast.*](images/rear_lighthouse_sunset_20230116_161238.jpg){alt="It'd be rude not to include a snap of sunset."}
 
 ***0904, Monday, Jan 16, 2023***
 
