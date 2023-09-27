@@ -1,6 +1,6 @@
 project:
   type: book
-  always_allow_html: true
+  #always_allow_html: true
 book:
   title: "To the lighthouse"
   author: "Des Ryan"
