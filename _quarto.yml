@@ -13,6 +13,10 @@ book:
     - ttl_4_howth_1.qmd
     - ttl_5_wicklow.qmd
     - ttl_6_balbriggan.qmd
+    #- ttl_8_greenore.qmd
+    #- ttl_10_greencastle.qmd
+    - ttl_11_dunmore_east_to_hook_head.qmd
+    - ttl_12_rosslare_harbour.qmd
 bibliography: references.bib
 format:
   html:
