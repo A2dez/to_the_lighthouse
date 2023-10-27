@@ -8,7 +8,7 @@ book:
   chapters:
     - index.qmd
     - ttl_1_poolbeg.qmd
-    - ttl_2_north_bull.qmd
+    - ttl_2_north_bull.qm
     - ttl_3_dun_laoghaire_1.qmd
     - ttl_4_howth_1.qmd
     - ttl_5_wicklow.qmd
