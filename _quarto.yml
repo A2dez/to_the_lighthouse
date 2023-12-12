@@ -11,14 +11,14 @@ book:
     - ttl_2_north_bull.qmd
     - ttl_3_dun_laoghaire_1.qmd
     - ttl_4_howth_1.qmd
-    - ttl_5_wicklow.qmd
-    - ttl_6_balbriggan.qmd
-    #- ttl_7_drogheda.qmd (no file as yet)
-    - ttl_8_greenore.qmd
-    - ttl_9_st_johns_point.qmd
+    #- ttl_5_wicklow.qmd
+    #- ttl_6_balbriggan.qmd
+    ##- ttl_7_drogheda.qmd (no file as yet)
+    #- ttl_8_greenore.qmd
+    #- ttl_9_st_johns_point.qmd
     #- ttl_10_greencastle.qmd
-    - ttl_11_dunmore_east_to_hook_head.qmd
-    - ttl_12_rosslare_harbour.qmd
+    #- ttl_11_dunmore_east_to_hook_head.qmd
+    #- ttl_12_rosslare_harbour.qmd
 bibliography: references.bib
 format:
   html:
