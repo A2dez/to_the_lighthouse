@@ -2,6 +2,14 @@
 title: "Mapping out the lighthouses"
 ---
 
+To do:
+```{r}
+# Maps
+# - osm maps access
+# - google maps api
+  # ggmap::register_google()
+```
+
 References:
 
 ```{r}
@@ -27,18 +35,17 @@ library(measurements)
 library(osmdata)
 library(ggmap)
 library(tidyverse)
+# citation("ggmap")
+# D. Kahle and H. Wickham. ggmap: Spatial Visualization with ggplot2. The R Journal, 5(1), 144-161. URL http://journal.r-project.org/archive/2013-1/kahle-wickham.pdf
+
 ```
 
 So I've had enough of trying to workout slash remember where all of the lighthouses are so I decided to gather and plot all of the data in one easy to read map. It's also a decent excuse to learn how to plot maps as I don't do much of that in work and it's always interesting and useful to learn about new kinds of data. Now Wikipedia has a page of lighthouses in Ireland, but they are grouped in three hard-to-read tables. The first table shows all the of the active lighthouses maintained by the Commissioner of Irish Lights, and this includes all of the sexy lighthouses you'll see on TV programs and tourist brochures. There's a table with active lighthouses maintained by anyone else, usually local harbours, and these are mostly perfunctory, unmemorable ones which draw only the completists, and then lastly there are the inactive lighthouses which sit there in various states of disrepair, ranging from total disuse to being mini-hotels for tourists. All groups occur in Wicklow Town. You've got your classic modern lighthouse right at the edge of the land on Wicklow Head. Beside it is that beautiful, octagonal 18th Century Structure, which you and your loved ones can rent out, and in between is a less flashy unmaintained old stone structure. Finally, the local harbour has a small lighthouse used for helping the fishermen get in and out of the harbour.\
 
 ```{r}
-View(lighthouse_data)
 
 
-lighthouse_data$operator <- if_else(!is.na(lighthouse_data$`Inactive  since`), 
-                                    'Inactive', if_else(!is.na(lighthouse_data$`Operated by`), 
-                                                        'Other', 
-                                                        'CIL') )
+
 ```
 
 First off we need to get the data:
@@ -54,8 +61,14 @@ lighthouse_data <-
   rvest::html_nodes("table.wikitable") %>% # pull out specific table
   rvest::html_table(fill = TRUE)  %>% 
   bind_rows
+lighthouse_data$id = seq_along(lighthouse_data$Name)
 
+lighthouse_data$operator <- if_else(!is.na(lighthouse_data$`Inactive  since`), 
+                                    'Inactive', if_else(!is.na(lighthouse_data$`Operated by`), 
+                                                        'Other', 
+                                                        'CIL') )
 # lighthouse_data <- bind_rows(ind_html) 
+lighthouse_data$location <-  str_extract(lighthouse_data$`Location  Coordinates`, "^([[:alpha:]]|\\s)+") 
 
 lighthouse_data$latitude <- 
   lighthouse_data$`Location  Coordinates` %>% str_extract('\\d{1,2}°\\d{1,2}′\\d{0,2}″(?=N)') %>% 
@@ -72,6 +85,8 @@ lighthouse_data$longitude <-
   conv_unit( from = "deg_min_sec", to = "dec_deg") %>% 
   as.numeric %>% 
   `*`(-1) #west not east
+
+View(lighthouse_data)
 ```
 
 -   <div>
@@ -119,9 +134,12 @@ lighthouse_data$longitude <-
 
 ```{r}
 
-
 ireland_map <- get_map( getbb('ireland'),
-                        source="stamen", 
+                        source="stadia", 
+                        color = 'bw') #, maptype='watercolor'
+
+ireland_map <- get_stadiamap( getbb('ireland'),
+                        source="stadia", 
                         color = 'bw') #, maptype='watercolor'
 
 # lighthouse_locations <- data.frame(lat = c(51.477),
@@ -148,6 +166,8 @@ ggmap(ireland_map) +
              ),
              size = 2) 
   facet_wrap(~lighthouse_data$operator)
+  
+?get_stadiamap
 ```
 
 ```{r}
@@ -229,3 +249,33 @@ ggmap(ireland_map) +
 #     c( 'Ireland', 'UK'),
 #     xlim=c(-11,-5.4), ylim=c(51.4,55.5)) 
 ```
+
+
+get_map issues
+```{r}
+Error in `get_googlemap()`:
+! Google now requires an API key; see `ggmap::register_google()`.
+Backtrace:
+ 1. ggmap::get_map(getbb("ireland"), source = "google", color = "bw")
+ 2. ggmap::get_googlemap(...)
+> ireland_map <- get_map( getbb('ireland'),
++                         source="stadia", 
++                         color = 'bw') #, maptype='watercolor'
+Error in `get_map()`:
+! Invalid Stadia `maptype`, see `get_stadiamap()`.
+Backtrace:
+ 1. ggmap::get_map(getbb("ireland"), source = "stadia", color = "bw")
+> ireland_map <- get_map( getbb('ireland'),
++                         source="osm", 
++                         color = 'bw') #, maptype='watercolor'
+Error: OSM is at least temporarily not supported, see https://github.com/dkahle/ggmap/issues/117.
+> ireland_map <- get_map( getbb('ireland'),
++                         source="stadia", 
++                         color = 'bw') #, maptype='watercolor'
+Error in `get_map()`:
+! Invalid Stadia `maptype`, see `get_stadiamap()`.
+Backtrace:
+ 1. ggmap::get_map(getbb("ireland"), source = "stadia", color = "bw")
+```
+
+
