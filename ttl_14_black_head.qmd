@@ -3,7 +3,7 @@ title: "Black Head"
 editor: visual
 ---
 
-![*Black Head, Co Clare, seen from Salthill on the northern side of Galway Bay. Up close the rocks are grey, but from afar, they appear black, especially as the sun sets on the Atlantic Ocean beyond. The lighthouse is out of view because the peninsula is convex, and it's pretty scaldy inanywaysleek.*](images/black_head_from_salthill.jpeg){alt="Black Head, Co Clare, seen from Salthill on the northern side of Galway Bay. Up close the rocks are grey, but from afar, they appear black, especially as the sun sets on the Atlantic Ocean beyond. The lighthouse is out of view because the peninsula is convex, and it's pretty scaldy inanyways."}
+![*Black Head, Co Clare, seen from Salthill on the northern side of Galway Bay. Up close, the rocks are grey and barren, but from afar they appear black, especially as the sun sets on the Atlantic Ocean beyond. The lighthouse is out of view because the peninsula is convex, and it's pretty scaldy inanywaysleek.*](images/black_head_from_salthill.jpeg){alt="Black Head, Co Clare, seen from Salthill on the northern side of Galway Bay. Up close the rocks are grey, but from afar, they appear black, especially as the sun sets on the Atlantic Ocean beyond. The lighthouse is out of view because the peninsula is convex, and it's pretty scaldy inanyways."}
 
 **0558, Friday, November 24, 2003**
 
