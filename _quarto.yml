@@ -5,22 +5,30 @@ book:
   title: "To the lighthouse"
   author: "Des Ryan"
   date: "2022-23"
+  
   chapters:
     - index.qmd
-    - ttl_1_poolbeg.qmd
-    - ttl_2_north_bull.qmd
-    - ttl_3_dun_laoghaire_1.qmd
-    - ttl_4_howth_1.qmd
-    - ttl_5_wicklow.qmd
-    - ttl_6_balbriggan.qmd
-    #- ttl_7_drogheda.qmd
-    - ttl_8_greenore.qmd
-    - ttl_9_st_johns_point.qmd
-    #- ttl_10_greencastle.qmd
-    - ttl_11_dunmore_east_to_hook_head.qmd
-    - ttl_12_rosslare_harbour.qmd
-    #- ttl_13_mine_head_youghal.qmd
-    - ttl_14_black_head.qmd
+    - part: "**Part 1. The mild, non-Atlantic Way**"
+      chapters:
+      - ttl_1_poolbeg.qmd
+      - ttl_2_north_bull.qmd
+      - ttl_3_dun_laoghaire_1.qmd
+      - ttl_4_howth_1.qmd
+      - ttl_5_wicklow.qmd
+      - ttl_6_balbriggan.qmd
+      #- ttl_7_drogheda.qmd
+      - ttl_8_greenore.qmd
+      - ttl_9_st_johns_point.qmd
+      #- ttl_10_greencastle.qmd
+      - ttl_11_dunmore_east_to_hook_head.qmd
+      - ttl_12_rosslare_harbour.qmd
+      - ttl_13_mine_head_youghal.qmd
+      - ttl_15_dun_laoghaire_2.qmd
+      
+    - part: "**Part 2. The Wild Atlantic Doris**"
+      chapters:
+      - ttl_14_black_head.qmd
+  
 bibliography: references.bib
 format:
   html:
