@@ -18,16 +18,16 @@ book:
       - ttl_06_balbriggan.qmd
       #- ttl_07_drogheda.qmd
       - ttl_08_greenore.qmd
-      - ttl_09_st_johns_point.qmd
+      #- ttl_09_st_johns_point.qmd
       #- ttl_10_greencastle.qmd
       - ttl_11_dunmore_east_to_hook_head.qmd
       - ttl_12_rosslare_harbour.qmd
-      - ttl_13_mine_head_youghal.qmd
-      - ttl_15_dun_laoghaire_2.qmd
+      #- ttl_13_mine_head_youghal.qmd
+      #- ttl_15_dun_laoghaire_2.qmd
       
-    - part: "**Part 2. The Wild Atlantic Doris**"
-      chapters:
-      - ttl_14_black_head.qmd
+    #- part: "**Part 2. The Wild Atlantic Doris**"
+     # chapters:
+     # - ttl_14_black_head.qmd
   
 bibliography: references.bib
 format:
