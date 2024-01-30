@@ -3,7 +3,7 @@ title: "Poolbeg"
 editor: visual
 ---
 
-![*Today I learnt that if you chase the light then life will bring you lighthouses.*](images/Poolbeg_video_still_color_enhanced.jpeg)
+![*Today I learnt that if you chase the light then life will bring you lighthouses...*](images/Poolbeg_video_still_color_enhanced.jpeg)
 
 ***0759, Sunday 28 August, 2022***
 
