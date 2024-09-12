@@ -116,19 +116,32 @@ Send
 
 ## who I am
 
-I turned forty during the writing of this book and my life is as busy as the next parent in my shoes. Way too busy for adventure. When I began, my wife was pregnant with our second child while I worked alone on a laptop all day, wrangling data for cash. We were furiously saving up cash to buy our own house. By the hopefully sea. Somewhere on the fringes of Dublin. Or a fresh start down the west. Anywhere but the decrepit duplex we were renting in geography-free Blanchardstown where we had transplanted ourselves due to the housing crisis.
+### **Busy busy**
 
-Every chance I had, I'd go to the sea. Bring the family to Dublin's varied coast Portmarnock, Malahide, Howth. Bray for veeriation. If I had a gap to myself, I'd go cycling. Early on weekend mornings I'd scope out the towns of North County Dublin and get shocked by the house prices. Early one morning on a family holiday, I was aiming for Hook Head before guilt got the better of me and I went back to be with my wife and son. The next week I cycled to Poolbeg Lighthouse and my jottings became the first chapter of this book. Finally I had something to write about. I realised I had something to write about and had a format that would work within my lifestyle.
+I turned forty while writing this book and my
 
-I've always wanted to be a writer but I've struggled for subject matter, format and focus. I have no imagination for fiction, not enough anger for journalism, and too much passion for the academic writings I have actually produced. Over the last decade, I've kept an intermittent diary, blasting out whatever complaints are fresh in my head, and from that morphed into a habit of writing down the thoughts I have when I cycle.
+My life is as busy as the next parent's. Working, children.
 
-morphed into jottings I'd make while out on the bike. I always have thoughts on the bike. New places trigger ideas and the slow movement provides space to develop them.
+Way too busy for any big adventures. When I began, in autumn 2022, my wife was pregnant with our second child and I wanted to get some momentum into a project before the baby was born and life became impossibly busy. Meanwhile I worked alone on a computer all day, wrangling data for cash, and we were furiously saving up to buy our own house. By the hopefully sea. Somewhere on the fringes of Dublin, not too far from my very elderly parents. Or a new life down the west, where our first child was born. Anywhere but the decrepit duplex we were renting in geography-free Blanchardstown where we had to transplant ourselves in late 2021.
+
+### **In the beginning**
+
+For the first year in Blanch, I took every chance I could to get to the sea. With the family or alone. If I had a gap to myself, I'd go cycling. Early on weekend mornings I'd scope out the towns of North County Dublin and get shocked by the house prices. Early one morning on a family holiday, I was aiming for Hook Head before guilt got the better of me and I went back to be with my wife and son. The next week I cycled to Poolbeg Lighthouse and my jottings became the first chapter of this book. Finally I had something to write about. I realised I had something to write about and had a format that would work within my lifestyle.
+
+### **Writing**
+
+I've always wanted to be a writer but I've just made too many excuses for myself. I have no imagination for fiction, not enough anger for journalism, and too much passion for the academic writings I have actually produced. Over the last decade, I have at least kept an intermittent diary, blasting out whatever complaints are fresh in my head, and from there I developed a habit of writing down the thoughts I have when I go cycling. I always have thoughts on the bike. New places trigger ideas and the slow movement provides space to develop them.
 
 The book took on two new goals. Seeing the entire Irish coastline and finding a place to live.
 
 s
 
-Would we ever be free of the poverty tax of rent? Might we get to live somewhere nice. Surely I was too old now for
+-   Would we ever be free of the poverty tax of rent?
+
+```{=html}
+<!-- -->
+```
+-   Might we get to live somewhere nice. Surely I was too old now for
 
 The sea makes me happy for no particular reason and I can't say that about many things
 
@@ -138,29 +151,25 @@ Explore the beauty of the Irish coast.
 
 , with this project, I found it in cycling to lighthouses, whenever I had wee gap in my schedule. Bank Holidays. A cheeky Saturday. A family camping trip.
 
-I mostly just write a diary and most of that is just me moaning about what's annoying me. But for some time I've bees
+**Parents**
 
-and I've too much passion to only write up my research on spelling.
-
-I love the sea, I love the bike and I love cycling up mountains. I got this from my mother who began cycling when I was young
-
-buy a house to get out of our decrepit duplex which the receivers were looking to sell.
+My parents took a very long time to get old and they slowed down the ageing process by cycling around the world in their fifties and sixties. To celebrate twenty-five years of marriage they cycled along the Danube and after that the trips kept getting longer until they cycled across Australia together, with Liz and Vinnie on the bike, and Tony the Triathlete in the back-up van. My dad's injuries slowed him down but my mam kept going, across America two years later and the length of Vietnam with Liz. Me and my big sisters would track their journeys on a map, and then listen to our their mad stories when they finally came home, bearing weightless postcards from strange lands. Their memories of these trips are stronger than anything they've ever done. My dad still bangs on about cycling up the Col du Tourmalet and my mam still feels the highs of cycling over The Rockies and the lows she felt on the dull plains on the other side.
 
 I turned forty during the writing of this book and my second child was born. I had a bus
 
--   dad with a job, turning 40, very boring
+-   ~~dad with a job, turning 40, very boring~~
 
--   in need for adventure, a bit of #metime
+-   ~~in need for adventure, a bit of #metime~~
 
--   pregnant wife. Knew i'd need to get something started before the baby was born. Once i had some momentum, it'd get done.
+-   ~~pregnant wife. Knew i'd need to get something started before the baby was born. Once i had some momentum, it'd get done.~~
 
--   parents were touring cyclists, inspiration
+-   ~~parents were touring cyclists, inspiration~~
 
-    -   always came home with travel stories
+    -   ~~always came home with travel stories~~
 
-        -   dad still loves talking about going up the Col du Tourmalet, spoke about it on what turned out not to be his deathbed
+        -   ~~dad still loves talking about going up the Col du Tourmalet, spoke about it on what turned out not to be his deathbed~~
 
-    -   mother always had travel books lying around.
+    -   ~~mother always had travel books lying around.~~
 
     -   
 
@@ -268,4 +277,26 @@ I turned forty during the writing of this book and my second child was born. I h
 
 -   Coffee table book
 
--   
+-   Anyone curious about feasible adventure
+
+------------------------------------------------------------------------
+
+Watching Ireland playing Norway in the 1994 World Cup
+
+they'd collect postcards on the way.
+
+-   parents were touring cyclists, inspiration
+
+    -   always came home with travel stories
+
+        -   dad still loves talking about going up the Col du Tourmalet, spoke about it on what turned out not to be his deathbed
+
+    -   mother always had travel books lying around.
+
+I mostly just write a diary and most of that is just me moaning about what's annoying me. But for some time I've bees
+
+and I've too much passion to only write up my research on spelling.
+
+I love the sea, I love the bike and I love cycling up mountains. I got this from my mother who began cycling when I was young
+
+buy a house to get out of our decrepit duplex which the receivers were looking to sell.
