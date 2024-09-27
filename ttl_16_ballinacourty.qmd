@@ -4,7 +4,7 @@ format: html
 editor: visual
 ---
 
-![*Ballinacourty lighthouse sits beside what is now a private house, and a full-time caretaker is required just to mow the lawn. In the background sits Helvick Head on the other side of Dungarvan Bay.*](images/ballinacourty_lighthouse.jpeg)
+![*Ballinacourty is a minimally perfect lighthouse, doing everything expected of the genre, yet without flamboyant colour, excessive size or dramatic location.*](images/ballinacourty_at_the_lighthouse.jpeg){alt="Ballinacourty is a minimally perfect lighthouse, doing everything expected of the genre, yet without flamboyant colour, excessive size or dramatic location."}
 
 **0845, Sunday February 4, 2024**
 
@@ -82,7 +82,7 @@ It's not long before we arrive at this legendary greenway that everyone is bangi
 
 We come off the greenway and cycle down the small triangular peninsula, past a golf resort, towards the lighthouse. We stop at Ballinard beach where two daytripper continentals are out posing for their camera, and another sits on the beach. The lighthouse is not visible from here, despite what I read on Lighthouse Pete's blog, but maybe the tide needs to be out. The lone lady leaves and we ask her about accessing the lighthouse. She says it's down the laneway parallel to the golf course, but on private land. It turns out there was another lighthouse enthusiast here recently, a nurse from Ballycotton apparently, who was asking the exact same thing. The lighthouse sits next to a private house with a jeep outside, but everything is plonked together at one end of a huge snooker-table lawn, like furniture waiting to be put back in place after the floor has been mopped. We head straight to the lighthouse but this leaves us within doorbell-pressing distance of the house, so I knock just in case the owner is there, as I'd rather be a polite pothole than a silent trespasser. Plus they might divulge some juicy lighthouse goss if we massage them nicely. But there is no answer. There's not really much we can do with the lighthouse from here, short of patting it on its back for being a good lighthouse, so we climb up on a short wall for some photos to mark the occasion, before stalling off for lunch in the golf club hotel around the corner.
 
-![*Ballinacourty is a minimally perfect lighthouse, doing everything expected of the genre, yet without flamboyant colour, excessive size or dramatic location.*](images/ballinacourty_at_the_lighthouse.jpeg)
+![*Ballinacourty lighthouse sits beside what is now a private house, and a full-time caretaker is required just to mow the lawn. In the background sits Helvick Head on the other side of Dungarvan Bay.*](images/ballinacourty_lighthouse.jpeg){alt="Ballinacourty lighthouse sits beside what is now a private house, and a full-time caretaker is required just to mow the lawn. In the background sits Helvick Head on the other side of Dungarvan Bay."}
 
 ## Nosebag for the lads
 
