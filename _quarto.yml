@@ -26,7 +26,7 @@ book:
       - ttl_15_dun_laoghaire_2.qmd
       - ttl_16_ballinacourty.qmd
       - ttl_17_dalkey.qmd
-      #- ttl_18_duncannon.qmd
+      - ttl_18_duncannon.qmd
       #- ttl_19_ballycotton_rochespoint.qmd
       #- ttl_20_blackrock_castle_cobh.qmd      
       
