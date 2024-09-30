@@ -3,8 +3,6 @@ title: "Dun Laoghaire 1"
 editor: visual
 ---
 
--   refer Gogarty
-
 ![*This lighthouse sells ice creams from inside an old military battery. That's either real progress or we've all just gone soft.*](images/IMG_20230101_113014.jpg)
 
 \
