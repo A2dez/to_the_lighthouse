@@ -27,7 +27,7 @@ book:
       - ttl_16_ballinacourty.qmd
       - ttl_17_dalkey.qmd
       - ttl_18_duncannon.qmd
-      #- ttl_19_ballycotton_rochespoint.qmd
+      - ttl_19_ballycotton_rochespoint.qmd
       - ttl_20_blackrock_castle_cobh.qmd      
       
     - part: "**Part 2. The Wild Atlantic Doris**"
