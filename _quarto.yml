@@ -28,7 +28,7 @@ book:
       - ttl_17_dalkey.qmd
       - ttl_18_duncannon.qmd
       - ttl_19_ballycotton.qmd
-      #- ttl_20_roches_point.qmd
+      - ttl_20_roches_point.qmd
       - ttl_21_blackrock_castle_cobh.qmd      
       
     - part: "**Part 2. The Wild Atlantic Doris**"
