@@ -2,9 +2,9 @@ project:
   type: book
   #always_allow_html: true
 book:
-  title: "To the lighthouse"
+  title: "To the lighthouse, vol 1: The Mild non-Atlantic Way"
   author: "Des Ryan"
-  date: "2022-23"
+  date: "August 2022 - October 2024"
   
   chapters:
     - index.qmd
@@ -19,7 +19,7 @@ book:
       - ttl_07_drogheda.qmd
       - ttl_08_greenore.qmd
       - ttl_09_st_johns_point.qmd
-      #- ttl_10_greencastle.qmd
+      - ttl_10_haulbowline.qmd
       - ttl_11_dunmore_east_to_hook_head.qmd
       - ttl_12_rosslare_harbour.qmd
       - ttl_13_mine_head_youghal.qmd
