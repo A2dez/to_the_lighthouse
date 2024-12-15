@@ -3,6 +3,7 @@ title: "Mapping out the lighthouses"
 ---
 
 To do:
+
 ```{r}
 # Maps
 # - osm maps access
@@ -25,6 +26,9 @@ References:
 #   https://www.shanelynn.ie/massive-geocoding-with-r-and-google-maps/
 #   
 #     https://www.littlemissdata.com/blog/maps
+7
+# Choropleth Ireland
+# https://www.cso.ie/en/methods/research/otherresearch/sdgresearch/mappingatableofdatawithesrishapefilesinr/
 ```
 
 ```{r}
@@ -250,8 +254,8 @@ ggmap(ireland_map) +
 #     xlim=c(-11,-5.4), ylim=c(51.4,55.5)) 
 ```
 
-
 get_map issues
+
 ```{r}
 Error in `get_googlemap()`:
 ! Google now requires an API key; see `ggmap::register_google()`.
@@ -278,4 +282,142 @@ Backtrace:
  1. ggmap::get_map(getbb("ireland"), source = "stadia", color = "bw")
 ```
 
+
+
+
+
+```{r}
+
+# By interacting with Copilot, you agree to the Terms of Use and confirm you’ve reviewed the Privacy Statement.
+# give me code in R to draw a map of Ireland with coordinates of all of hte lighthouses marked on it
+# Sure thing! Here's a code snippet in R that will help you draw a map of Ireland with the coordinates of all the lighthouses marked on it. You'll need to have the ggplot2 and sf packages installed. If you don't have them yet, you can install them using install.packages("ggplot2") and install.packages("sf").
+
+
+# Load necessary libraries
+library(ggplot2)
+library(sf)
+
+# Read the shapefile for Ireland (you can download it from a reliable source)
+ireland <- st_read("path_to_your_shapefile/Ireland_shapefile.shp")
+ireland <- st_read("C:/Users/pc/projects/to_the_lighthouse/Ireland_shapefile/ie_100km")
+
+folder_path <- 'C:/Users/pc/projects/to_the_lighthouse/ireland-and-northern-ireland-latest-free'
+shp_filename <- "gis_osm_roads_free_1.shp"
+
+ireland <- st_read(file.path(folder_path, shp_filename))
+"C:/Users/pc/projects/to_the_lighthouse/ireland-and-northern-ireland-latest-free/gis_osm_roads_free_1.shp"
+ireland <- st_read("C:/Users/pc/projects/to_the_lighthouse/ireland-and-northern-ireland-latest-free/gis_osm_transport_a_free_1.shp")
+# Create a data frame with the coordinates of the lighthouses
+lighthouses <- data.frame(
+  name = c("Hook Lighthouse", "Fastnet Lighthouse", "Baily Lighthouse", "Galley Head Lighthouse"),
+  lat = c(52.123, 51.389, 53.364, 51.516),
+  lon = c(-6.929, -9.601, -6.063, -8.852)
+)
+
+
+# Convert the lighthouses data frame to an sf object
+lighthouses_sf <- st_as_sf(lighthouses, coords = c("lon", "lat"), crs = 4326)
+
+# Plot the map
+ggplot() +
+  geom_sf(data = ireland, fill = "lightblue", color = "black") +
+  geom_sf(data = lighthouses_sf, color = "red", size = 3, shape = 21, fill = "yellow") +
+  theme_minimal() +
+  labs(title = "Lighthouses in Ireland", x = "Longitude", y = "Latitude")
+# Make sure to replace "path_to_your_shapefile/Ireland_shapefile.shp" with the actual path to your shapefile of Ireland. This code will create a map of Ireland with the lighthouses marked in red and filled with yellow. Enjoy mapping!
+
+
+
+Message Copilot
+
+cd C:\Users\pc\AppData\Local\Temp\RtmpAvrZG8\downloaded_packages
+
+```
+```{r}
+#CSO shapefile + choropleth #not working can't access file
+tmpdir <- tempdir()
+url <- paste0("http://census.cso.ie/censusasp/saps/boundaries/", "Census2011_NUTS3_generalised20m.zip")
+file <- basename(url)
+download.file(url, file) #not working
+unzip(file, exdir = tmpdir)
+shapeFile <- paste0(tmpdir,"\\Census2011_NUTS3_ge
+```
+Data 
+https://download.geofabrik.de/europe/ireland-and-northern-ireland.html
+
+```{r}
+ireland <- st_read("C:/Users/pc/projects/to_the_lighthouse/ireland-and-northern-ireland-latest-free/gis_osm_transport_a_free_1.shp")
+# Create a data frame with the coordinates of the lighthouses
+lighthouses <- data.frame(
+  name = c("Hook Lighthouse", "Fastnet Lighthouse", "Baily Lighthouse", "Galley Head Lighthouse"),
+  lat = c(52.123, 51.389, 53.364, 51.516),
+  lon = c(-6.929, -9.601, -6.063, -8.852)
+)
+
+shp_files <- list.files("C:/Users/pc/projects/to_the_lighthouse/Ireland_shapefile/ireland-and-northern-ireland-latest-free/", pattern = '.shp$', full.names = T)
+shp_files -> x
+x <- x[sapply(x, file.size) < 3000000]
+ireland = st_read(x[1])
+
+# Plot the map
+plot_shp_lighthouses <- function(shp_filepath) {
+  ireland = st_read(shp_filepath)
+  ggplot() +
+  geom_sf(data = ireland, fill = "lightblue", color = "black") +
+  geom_sf(data = lighthouses_sf, color = "red", size = 3, shape = 21, fill = "yellow") +
+  theme_minimal() +
+  labs(title = basename(shp_filepath), x = "Longitude", y = "Latitude")
+}
+
+x = 2
+plot_shp_lighthouses(shp_files[x])
+```
+
+https://stackoverflow.com/questions/49037471/how-do-i-include-ireland-in-my-map-in-r
+
+```{r}
+library(maps)
+library(mapdata)
+maps::map(
+  database = "worldHires",
+  regions = c("uk", "ireland"),
+  xlim = c(-12, 2),
+  ylim = c(49, 59),
+  col = "gray90",
+  fill = TRUE
+  )
+```
+
+
+```{python}
+import geopandas as gpd
+import matplotlib.pyplot as plt
+from shapely.geometry import Point
+# ie_10km.shp
+Ireland_shapefile.shp
+# Read the shapefile for Ireland (you can download it from a reliable source)
+ireland = gpd.read_file("path_to_your_shapefile/Ireland_shapefile.shp")
+
+# Create a GeoDataFrame with the coordinates of the lighthouses
+lighthouses = gpd.GeoDataFrame({
+    'name': ["Hook Lighthouse", "Fastnet Lighthouse", "Baily Lighthouse", "Galley Head Lighthouse"],
+    'geometry': [Point(-6.929, 52.123), Point(-9.601, 51.389), Point(-6.063, 53.364), Point(-8.852, 51.516)]
+})
+
+# Plot the map
+fig, ax = plt.subplots(figsize=(10, 10))
+ireland.plot(ax=ax, color='lightblue', edgecolor='black')
+lighthouses.plot(ax=ax, color='red', markersize=50, marker='o', label='Lighthouses')
+
+# Add labels
+for x, y, label in zip(lighthouses.geometry.x, lighthouses.geometry.y, lighthouses.name):
+    ax.text(x, y, label, fontsize=12, ha='right')
+
+plt.title("Lighthouses in Ireland")
+plt.xlabel("Longitude")
+plt.ylabel("Latitude")
+plt.legend()
+plt.show()
+
+```
 
