@@ -2,6 +2,93 @@
 title: "Mapping out the lighthouses"
 ---
 
+Geocomputation with R
+https://r.geocompx.org/
+
+
+```{r}
+# Lighthouse data is on Wikipedia in three tables
+library(polite)
+library(measurements)
+library(tidyverse)
+url = 'https://en.wikipedia.org/wiki/List_of_lighthouses_in_Ireland'
+url_bow <- polite::bow(url)
+
+lighthouse_data <-
+  polite::scrape(url_bow) %>%  # scrape web page
+  rvest::html_nodes("table.wikitable") %>% # pull out specific table
+  rvest::html_table(fill = TRUE)  %>% 
+  bind_rows
+lighthouse_data$id = seq_along(lighthouse_data$Name)
+
+lighthouse_data$operator <- if_else(!is.na(lighthouse_data$`Inactive  since`), 
+                                    'Inactive', if_else(!is.na(lighthouse_data$`Operated by`), 
+                                                        'Other', 
+                                                        'CIL') )
+# lighthouse_data <- bind_rows(ind_html) 
+lighthouse_data$location <-  str_extract(lighthouse_data$`Location  Coordinates`, "^([[:alpha:]]|\\s)+") 
+
+lighthouse_data$latitude <- 
+  lighthouse_data$`Location  Coordinates` %>% str_extract('\\d{1,2}°\\d{1,2}′\\d{0,2}″(?=N)') %>% 
+  str_replace_all('[°′″]', ' ') %>% 
+  str_trim %>% 
+  conv_unit( from = "deg_min_sec", to = "dec_deg") %>% 
+  as.numeric
+  
+
+lighthouse_data$longitude <- 
+  lighthouse_data$`Location  Coordinates` %>% str_extract('\\d{1,2}°\\d{1,2}′\\d{0,2}″(?=W)') %>% 
+  str_replace_all('[°′″]', ' ') %>% 
+  str_trim %>% 
+  conv_unit( from = "deg_min_sec", to = "dec_deg") %>% 
+  as.numeric %>% 
+  `*`(-1) #west not east
+#View(lighthouse_data)
+write_csv(lighthouse_data, 'lighthouse_data.csv')
+```
+
+
+```{r}
+library(ggmap)
+library(gridExtra)
+?register_stadiamaps
+register_stadiamaps(key = "4cac8423-a349-4b92-a41f-94141e21eb10", write = T)
+
+
+bbox = c(left = -12, bottom = 50, right = -4, top = 56)
+map <- get_stadiamap( bbox, 
+                      zoom = 12, 
+                      maptype = "stamen_terrain")
+
+
+map %>% 
+  ggmap() +
+  geom_point(data=lighthouse_data,
+             aes(x=longitude,y=latitude, color=operator), #,
+             size=4,alpha=.7)
+
+
+#Mild non-Atlantic way coordinates
+# bbox = c(left = -9, bottom = 50, right = -4, top = 54.5)
+# 
+# 
+# map2 <- get_stadiamap( bbox, 
+#                       zoom = 10, 
+#                       maptype = "stamen_terrain")
+
+
+#
+?get_stadiamap
+ggmap(map2) #+
+  theme_void() +
+  theme(
+    plot.title = element_text(colour = "orange"),
+    panel.border = element_rect(colour = "grey", fill=NA, size=2)
+  )
+
+
+```
+
 To do:
 
 ```{r}
@@ -56,7 +143,8 @@ First off we need to get the data:
 
 ```{r}
 # Lighthouse data is on Wikipedia in three tables
-
+library(polite)
+library(measurements)
 url = 'https://en.wikipedia.org/wiki/List_of_lighthouses_in_Ireland'
 url_bow <- polite::bow(url)
 
@@ -129,12 +217,7 @@ View(lighthouse_data)
     # long <- conv_unit('104 38 26.88' , from = "deg_min_sec", to = "dec_deg")
     ```
 
-    View(lighthouse_data)\
-
-    \
-    \
-
-    </div>
+   
 
 ```{r}
 
@@ -213,6 +296,7 @@ ggmap(ireland_map) +
 \
 
 ```{r}
+lisbon_map <- get_map( getbb('lisbon'), source="osm")
 
 ```
 
@@ -299,7 +383,7 @@ library(sf)
 
 # Read the shapefile for Ireland (you can download it from a reliable source)
 ireland <- st_read("path_to_your_shapefile/Ireland_shapefile.shp")
-ireland <- st_read("C:/Users/pc/projects/to_the_lighthouse/Ireland_shapefile/ie_100km")
+ireland <- st_read("C:/Users/pc/projects/to_the_lighthouse/Ireland_shapefile/ie_1km.shp")
 
 folder_path <- 'C:/Users/pc/projects/to_the_lighthouse/ireland-and-northern-ireland-latest-free'
 shp_filename <- "gis_osm_roads_free_1.shp"
@@ -386,6 +470,44 @@ maps::map(
   col = "gray90",
   fill = TRUE
   )
+```
+
+
+```{r}
+#https://stackoverflow.com/questions/11056738/plotting-points-from-a-data-frame-using-openstreetmap
+library( OpenStreetMap )
+
+library( ggplot2 )
+stores <- data.frame(name=c("Commercial","Union","Bedford"),
+                     longitude=c(-70.25042295455933,-70.26050806045532,-70.27726650238037),
+                     latitude=c(43.657471302616806,43.65663299041943,43.66091757424481))
+lat <- c(43.68093,43.64278)
+lon <- c(-70.29548,-70.24097)
+
+portland <- OpenStreetMap::openmap( c( lat[1], lon[1] ), c( lat[2], lon[2] ),zoom = 15, 'osm')
+```
+
+```{r}
+library(ggmap)
+#citation("ggmap")
+
+stores <- data.frame(name=c("Commercial","Union","Bedford"),
+        longitude=c(-70.25042295455933,-70.26050806045532,-70.27726650238037),
+        latitude=c(43.657471302616806,43.65663299041943,43.66091757424481))
+location = c(-70.2954, 43.64278, -70.2350, 43.68093)
+
+# Fetch the map
+?get_map
+portland = get_map(location = location, source = "stadia")
+
+# Draw the map
+portlandMap = ggmap(portland)
+
+# Add the points layer
+portlandMap = portlandMap + geom_point(data = stores, aes(x = longitude, y = latitude), size = 5)
+
+# Add the labels
+portlandMap + geom_text(data = stores, aes(label = name, x = longitude+.001, y = latitude), hjust = 0)
 ```
 
 
