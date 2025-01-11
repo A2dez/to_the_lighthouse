@@ -5,6 +5,12 @@ title: "Mapping out the lighthouses"
 Geocomputation with R
 https://r.geocompx.org/
 
+```{r}
+library(readr)
+lighthouse_data <- read_csv( 'lighthouse_data.csv')
+```
+
+
 
 ```{r}
 # Lighthouse data is on Wikipedia in three tables
@@ -51,15 +57,15 @@ write_csv(lighthouse_data, 'lighthouse_data.csv')
 ```{r}
 library(ggmap)
 library(gridExtra)
-?register_stadiamaps
-register_stadiamaps(key = "4cac8423-a349-4b92-a41f-94141e21eb10", write = T)
+#?register_stadiamaps
+#register_stadiamaps(key = "4cac8423-a349-4b92-a41f-94141e21eb10", write = T)
 
 
-bbox = c(left = -12, bottom = 50, right = -4, top = 56)
+bbox = c(left = -11, bottom = 50, right = -3, top = 56)
 map <- get_stadiamap( bbox, 
-                      zoom = 12, 
+                      zoom = 11, 
                       maptype = "stamen_terrain")
-
+saveRDS(map, 'ireland_zoom_11_stamen_terrain.rds')
 
 map %>% 
   ggmap() +
@@ -78,13 +84,13 @@ map %>%
 
 
 #
-?get_stadiamap
-ggmap(map2) #+
-  theme_void() +
-  theme(
-    plot.title = element_text(colour = "orange"),
-    panel.border = element_rect(colour = "grey", fill=NA, size=2)
-  )
+# ?get_stadiamap
+# ggmap(map2) #+
+#   theme_void() +
+#   theme(
+#     plot.title = element_text(colour = "orange"),
+#     panel.border = element_rect(colour = "grey", fill=NA, size=2)
+#   )
 
 
 ```
