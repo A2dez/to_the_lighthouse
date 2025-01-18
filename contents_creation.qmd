@@ -1,0 +1,188 @@
+---
+title: "Contents"
+---
+
+To do
+- 
+- justify text in plotly (or change program)
+- updated links for each (paste filenames to make http link and make column in dfrm)
+- sort out the colours
+- add page numbers for the pdf version
+- get correct chapter names from the qmd files
+
+```{r}
+Goal
+-  create a contents page with a bar chart showing the length of each chapter, and ideally the page number
+- html version should be clickable
+- include pic of lighthouse, counties, etc  
+
+Data input
+- read chapter names from the yaml file containing chapters in the book. This is the source of truth (and not grepping for, say, '^tt_\\d{1,2}')
+```
+
+
+Code:
+```{r}
+
+10. read from yaml
+20. create wordcount (wc -w (bash) or via R)
+23. get correct chapter names from the qmd files
+22. find page number
+24. find dates
+30. barplot
+          first chapter at top, obvs
+          page number as label
+          names of the chapters inside the bars
+35.       add pics of lighthouses, not sure where yet
+40. interactive plot
+50. add clickable internal links
+```
+
+To learn
+```{r}
+- find page number in quarto pdf
+- find internal links in quarto html
+- click on interactive plot to go to said link(s)
+```
+
+
+```{r}
+library(stringr)
+library(ggplot2)
+library(viridis)
+library(htmlwidgets)
+yaml_file = '_quarto.yml'
+ttl_filepath_regex = "ttl_\\d{1,2}.*?\\.qmd"
+ttl_filenames <- readLines(yaml_file)  %>% 
+  str_extract(ttl_filepath_regex)   %>% 
+  str_subset(ttl_filepath_regex, negate = F)
+
+
+# full paths for ttl_filenames
+filepaths <- file.path(getwd(),ttl_filenames )
+
+# Function to count words using PowerShell command
+count_words_in_file <- function(filepath) {
+  command <- paste("powershell -Command \"(Get-Content", filepath, "| Measure-Object -Word).Words\"")
+  result <- system(command, intern = TRUE)
+  
+  # Extract the number of words
+  word_count <- as.integer(result)
+  
+  return(word_count)
+}
+
+# Count words in each file
+word_counts <- sapply(filepaths, count_words_in_file)
+word_counts <- as.data.frame(word_counts)
+
+barplot(rev(word_counts$word_counts), horiz = T)
+
+#names(word_counts = c('file',))
+
+word_counts$lighthouse <- str_extract(ttl_filenames, '(?<=ttl_\\d{2}_).*?(?=\\.qmd)') %>%   factor( levels = rev(.))
+word_counts$link <- "https://a2dez.github.io/to_the_lighthouse/ttl_01_poolbeg.html"
+View(word_counts)
+(g <- word_counts %>% 
+  ggplot(aes(y = word_counts, 
+             fill = 'white', #fill = word_counts,
+             x = lighthouse,
+         customdata = link)
+         )+
+  geom_bar(stat = 'identity') +
+   # geom_text(aes(label = word_counts), hjust = 1, nudge_y = -0.5, color = "white") +
+  geom_text(aes(label = lighthouse), 
+            y = 0, 
+            nudge_y = -4,
+            hjust = 0, 
+            #position = position_stack(vjust = 0), 
+            color = 'white') +
+  #scale_fill_viridis(begin = 0.3) + 
+  coord_flip() +
+  ylab('Word Count') +
+  xlab('') +
+  theme_void() +
+  theme( 
+  plot.title = element_text(color="black", 
+                            size=12, 
+                            face="bold.italic"),
+  axis.title.x = element_text(size = 10, face = 'bold'), 
+  axis.title.y = element_text(size=10, face="bold"),
+  axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  legend.position = 'none'
+) ) 
+
+p <- ggplotly(g, tooltip = c("text"))
+
+onRender(
+  p, "
+  function(el) {
+    el.on('plotly_click', function(d) {
+      var url = d.points[0].customdata;
+      window.open(url);
+    });
+  }
+"
+)
+  
+library(plotly)
+```
+
+
+```{r}
+
+
+# Data frame
+data <- data.frame(
+  check.names = FALSE,
+  `price` = c(6790000, 6950000, 5990000, 5990000, 4150000, 8654100),
+  `rooms` = c("4+1", "3+1", "2+kk", "2+1", "1+kk", "4+1"),
+  `m2` = c(78, 78, 58, 52, 30, 100),
+  `location` = c("Bohunice", "Bystrc", "Plotni", "Lesna", "Styrice", "Zabrdovice"),
+  `link` = c(
+    "https://www.sreality.cz/detail/prodej/byt/4+1/brno-bohunice-moldavska/2155567196",
+    "https://www.sreality.cz/detail/prodej/byt/3+1/brno-bystrc-cerneho/2881087836",
+    "https://www.sreality.cz/detail/prodej/byt/2+kk/brno--plotni/2840209756",
+    "https://www.sreality.cz/detail/prodej/byt/2+1/brno-lesna-triskalova/2905770332",
+    "https://www.sreality.cz/detail/prodej/byt/1+kk/brno-styrice-videnska/3682412892",
+    "https://www.sreality.cz/detail/prodej/byt/4+1/brno-zabrdovice-kornerova/2548312156"
+  )
+)
+
+library(ggplot2)
+library(plotly)
+library(htmlwidgets)
+
+g <- ggplot(data, aes(
+  x = m2, y = price,
+  text = paste0(
+    "Type: ", rooms, "\n",
+    "Price: ", price, "\n",
+    "M2: ", m2, "\n",
+    "Location: ", location
+  ),
+  customdata = link
+)) +
+  geom_point(aes(fill = rooms), color = "black", size = 3, alpha = 0.9) +
+  theme_minimal() +
+  scale_x_continuous(breaks = seq(min(0), max(350), by = 50)) +
+  scale_y_continuous(breaks = seq(min(0), max(40000000), by = 2000000)) +
+  theme(
+    legend.title = element_blank()
+  )
+
+p <- ggplotly(g, tooltip = c("text"))
+
+onRender(
+  p, "
+  function(el) {
+    el.on('plotly_click', function(d) {
+      var url = d.points[0].customdata;
+      window.open(url);
+    });
+  }
+"
+)
+
+```
