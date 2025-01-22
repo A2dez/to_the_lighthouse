@@ -1,58 +1,91 @@
 ---
-title: "Contents"
+title: "Table of Contents"
+encoding: "UTF8"
 ---
 
-To do
-- 
-- justify text in plotly (or change program)
-- updated links for each (paste filenames to make http link and make column in dfrm)
-- sort out the colours
-- add page numbers for the pdf version
-- get correct chapter names from the qmd files
+```{r, eval = F, echo = F}
+PDF issues
+ - lighthouse / UTF symbols
+- graph width
 
-```{r}
-Goal
--  create a contents page with a bar chart showing the length of each chapter, and ideally the page number
-- html version should be clickable
-- include pic of lighthouse, counties, etc  
+## To do
 
-Data input
-- read chapter names from the yaml file containing chapters in the book. This is the source of truth (and not grepping for, say, '^tt_\\d{1,2}')
-```
+-   justify text in plotly (or change program)
+-   updated links for each (paste filenames to make http link and make column in dfrm)
+-   sort out the colours
+-   add page numbers for the pdf version
+-   get correct chapter names from the qmd files
+-   add dates of trip + hours etc.
 
+Goal - create a contents page with a bar chart showing the length of each chapter, and ideally the page number - html version should be clickable - include pic of lighthouse, counties, etc
+
+Data input - read chapter names from the yaml file containing chapters in the book. This is the source of truth (and not grepping for, say, '\^tt\_\\d{1,2}')
 
 Code:
-```{r}
 
 10. read from yaml
-20. create wordcount (wc -w (bash) or via R)
-23. get correct chapter names from the qmd files
-22. find page number
-24. find dates
-30. barplot
-          first chapter at top, obvs
-          page number as label
-          names of the chapters inside the bars
-35.       add pics of lighthouses, not sure where yet
-40. interactive plot
-50. add clickable internal links
-```
+
+Data prep
+
+10. create wordcount (wc -w (bash) or via R)
+
+11. **get correct chapter names from the qmd files**
+
+12. **find page numbers**
+
+13. create link to chapter from filenames
+
+14. **find dates**
+
+15. barplot
+
+    10. first chapter at top, obvs
+    11. **page number as label**
+    12. names of the chapters inside the bars
+    13. **colour the dots with county colours**
+    14. **Font**
+
+16. 
+
+    
+      add pics of lighthouses, not sure where yet
+      17. interactive plot
+
+18. add clickable internal links
 
 To learn
-```{r}
-- find page number in quarto pdf
-- find internal links in quarto html
-- click on interactive plot to go to said link(s)
+
+-   find page number in quarto pdf
+-   find internal links in quarto html
+-   click on interactive plot to go to said link(s)
+
+
+
 ```
 
 
-```{r}
+
+```{r, , echo = F, message = F, warning = F}
+#**Constants**
+yaml_file = '_quarto.yml'
+ttl_filepath_regex = "ttl_\\d{1,2}.*?\\.qmd"
+url_base = "https://a2dez.github.io/to_the_lighthouse"
+```
+
+
+
+```{r, message = F, echo = F, message = F, warning = F}
 library(stringr)
+library(readr)
 library(ggplot2)
 library(viridis)
 library(htmlwidgets)
-yaml_file = '_quarto.yml'
-ttl_filepath_regex = "ttl_\\d{1,2}.*?\\.qmd"
+library(plotly)
+library(stringr)
+library(magrittr)
+library(dplyr)
+library(forcats)   
+
 ttl_filenames <- readLines(yaml_file)  %>% 
   str_extract(ttl_filepath_regex)   %>% 
   str_subset(ttl_filepath_regex, negate = F)
@@ -73,27 +106,191 @@ count_words_in_file <- function(filepath) {
 }
 
 # Count words in each file
+#this takes like 30 secs for 20 files
 word_counts <- sapply(filepaths, count_words_in_file)
 word_counts <- as.data.frame(word_counts)
 
-barplot(rev(word_counts$word_counts), horiz = T)
+#concept check barplot
+#barplot(rev(word_counts$word_counts), horiz = T)
 
-#names(word_counts = c('file',))
 
-word_counts$lighthouse <- str_extract(ttl_filenames, '(?<=ttl_\\d{2}_).*?(?=\\.qmd)') %>%   factor( levels = rev(.))
-word_counts$link <- "https://a2dez.github.io/to_the_lighthouse/ttl_01_poolbeg.html"
-View(word_counts)
+#Lighthouse dummy names
+word_counts$lighthouse <- str_extract(ttl_filenames, '(?<=ttl_\\d{2}_).*?(?=\\.qmd)') # %>%   factor( levels = rev(.))
+word_counts$chapter <- str_extract(filepaths, '\\d+') %>% as.numeric
+#glimpse(word_counts)
+#link should be constructed with the 
+#word_counts$link <- "https://a2dez.github.io/to_the_lighthouse/ttl_01_poolbeg.html"
+
+word_counts$link <- 
+  basename(filepaths) %>% 
+  str_replace('qmd$', 'html') %>% 
+  file.path(url_base, .)
+
+
+# filepaths[1] %>% readLines %>% str_extract("title:.*") %>% .[is.na(.) == F]
+word_counts$lighthouse <- 
+  sapply(filepaths, 
+       function(c) { c %>% readLines %>% str_extract("title:.*") %>% .[is.na(.) == F]} ) %>% 
+  str_extract('(?<=\").*(?=\")') #%>%   
+
+ # factor( levels = rev(.))
+       
+
+lighthouse_counties <- read_tsv("lighthouse_counties.tsv") %>% select(1:3)
+word_counts <-left_join(word_counts, lighthouse_counties, by = 'lighthouse') %>% 
+  arrange(chapter) %>% 
+  mutate(lighthouse = lighthouse %>%   factor %>% fct_reorder(chapter) ) #factor( levels = rev(.)))
+
+```
+
+
+
+```{r  echo = F, message = F, warning = F}
+linewidth = 0.75
+explanation = "The graphic doubles up as a table of contents and a scatter plot of how many words are in each chapter, shown by the orange lighthouse symbol and the thin horizontal white lines. The chapters get longer as the book progresses, with a few outliers, partly because I cycle further and partly because I amass a wider range of things to say, a habit that may result in some quality bleaching. This is a common problem among artists. Books get longer, songs explode in length, double albums get released. Sometimes ambition is the driving force, sometimes it's mediocrity clogging up well-worn terrain. I fear the latter so I decided to put a donk on the project until it feels fresh for me again."
+
+word_counts %>%
+  #mutate (chapter = chapter %>% factor %>% fct_rev) %>% 
+  ggplot(aes(x= chapter %>% rev, 
+             y= word_counts))+
+  geom_segment( aes(x=chapter %>% rev, 
+                    xend=chapter%>% rev, 
+                    y=0, 
+                    yend=word_counts),
+                colour = 'white',
+                linewidth = linewidth) +
+  geom_smooth( data=subset(word_counts,
+                          word_counts > 2000),
+                method=lm, ,
+               color="black",
+               linewidth = 0.2,
+               se=FALSE) +
+    geom_point( size=3, 
+              color= "#ff9f54",  #chosen to complement the green
+              #fill = "black",
+              alpha=1, 
+              shape="\u26EF",
+              stroke= 10, 
+              position = position_nudge(x = 0.05*linewidth)) + 
+
+    geom_text(aes(
+        label = paste0(seq_along(lighthouse) %>% str_pad(2, pad = '\u2004'), '. ', lighthouse)),
+            y = 100, 
+            nudge_x = 0.4 + 0.1*linewidth,
+            hjust = "inward", 
+            #vjust = -0.4,
+            #position = position_stack(vjust = 0),
+            color = 'black',
+            fontface = "bold") +
+  coord_flip() +
+  scale_x_discrete(labels = seq_along(word_counts$lighthouse) %>% rev,
+                   expand = expand_scale(mult = c(0, 0), 
+                                         add = c(0.7, 1))) +
+    scale_y_continuous(  expand = expand_scale(mult = c(0, 0), 
+                                         add = c(0, 300)) )+
+
+  ylab('Word Count') +
+  xlab('') +
+  labs (plot.caption = explanation) + 
+  #labs(title = 'Table of contents') +
+  theme( 
+      panel.grid = element_blank(),
+      panel.background = element_rect(fill = "seagreen1" ), ##54ff9f colour
+     
+      plot.background = element_rect(fill = "seagreen1"),
+       axis.title.x = element_text(size = 10, face = 'bold'),
+      axis.text.y = element_text(size = 10, face = 'bold'),
+       axis.ticks.y=  element_blank()
+    )
+
+# 
+# ggsave(filename, plot = last_plot(), device = NULL, path = NULL,
+#        scale = 1, width = NA, height = NA, units = c("in", "cm", "mm"),
+#        dpi = 300, limitsize = TRUE, ...)
+```
+
+
+"The graphic doubles up as a table of contents and a scatter plot of how many words are in each chapter, shown by the orange lighthouse symbol and the thin horizontal white lines. The chapters get longer as the book progresses, with a few outliers, partly because I cycle further and partly because I amass a wider range of things to say, a habit that may result in some quality bleaching. This is a common problem among artists. Books get longer, songs explode in length, double albums get released. Sometimes ambition is the driving force, sometimes it's mediocrity clogging up well-worn terrain. I fear the latter so I decided to put a donk on the project until it feels fresh for me again."
+
+
+```{r, eval = F, echo = F}
+#glimpse(word_counts)
+# word_counts <- word_counts %>% 
+#   mutate(color_start1 = 
+#            case_when( county_start   == "Dublin" ~ "navyblue", 
+#                       county_start == "Cork" ~ "red", 
+#                       county_start == "Wicklow" ~ "blue", 
+#                       county_start == "Louth" ~ "red4", 
+#                       county_start   == "Wexford" ~ "purple", 
+#                       county_start == "Waterford" ~ "blue", 
+#                       county_start == "Down" ~ "red", 
+#                       TRUE ~ NA_character_ # Default case
+#            ) %>% factor %>% fct_relevel(county_start),
+#          color_start2 = 
+#            case_when( county_start   == "Dublin" ~ "cyan", 
+#                       county_start == "Cork" ~ "white", 
+#                       county_start == "Wicklow" ~ "white", 
+#                       county_start == "Louth" ~ "white", 
+#                       county_start   == "Wexford" ~ "yellow", 
+#                       county_start == "Waterford" ~ "white", 
+#                       county_start == "Down" ~ "black", 
+#                       TRUE ~ NA_character_ # Default case
+#            ) %>% factor %>%  fct_relevel(county_start)
+#   )
+#        
+
+ #geom_point(aes(y = 0, size=3, color=color_start1, fill=color_start2, alpha=1,  stroke=3), shape=22) +
+   # geom_text(aes(label = word_counts), hjust = 1, nudge_y = -0.5, color = "white") +
+  geom_text(aes(label = lighthouse),
+            y = 0, 
+           # nudge_y = -400,
+            hjust = "inward", 
+            #vjust = -0.4,
+            #position = position_stack(vjust = 0),
+            color = 'black',
+            fontface = "bold") +
+  # scale_x_discrete(breaks = 10000:10021) +
+  coord_flip() +
+   scale_y_reverse(NULL, breaks = NULL) +#
+   scale_x_discrete(breaks = letters[1:21] )+
+  # scale_y_continuous(labels = NULL
+  #   # labels = ~ as.character(-breaks)
+  #   ) +
+  ylab('Word Count') +
+  xlab('') +
+  # theme_economist() +
+    theme( 
+  plot.title = element_text(color="black", 
+                            size=12, 
+                            face="bold.italic"),
+  axis.title.x = element_text(size = 10, face = 'bold'), 
+  axis.title.y = element_text(size=10, face="bold"),
+ # axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+ axis.ticks.y=  element_blank(),
+ panel.background = element_rect(fill = "seagreen1"), ##54ff9f colour
+ plot.background = element_rect(fill = "seagreen1"),
+  legend.position = 'none')  
+)
+```
+
+
+
+```{r, eval = F, echo = F}
+
+#View(word_counts)
 (g <- word_counts %>% 
   ggplot(aes(y = word_counts, 
              fill = 'white', #fill = word_counts,
-             x = lighthouse,
+             x = lighthouse ,
+             text = lighthouse,
          customdata = link)
          )+
   geom_bar(stat = 'identity') +
    # geom_text(aes(label = word_counts), hjust = 1, nudge_y = -0.5, color = "white") +
   geom_text(aes(label = lighthouse), 
             y = 0, 
-            nudge_y = -4,
+            nudge_y = -200,
             hjust = 0, 
             #position = position_stack(vjust = 0), 
             color = 'white') +
@@ -115,6 +312,7 @@ View(word_counts)
 
 p <- ggplotly(g, tooltip = c("text"))
 
+
 onRender(
   p, "
   function(el) {
@@ -125,12 +323,158 @@ onRender(
   }
 "
 )
-  
-library(plotly)
 ```
 
 
-```{r}
+```{r, eval = F, echo = F}
+(g <- word_counts %>% 
+  ggplot(aes(x= seq_along(lighthouse) %>% rev, 
+             y=word_counts,
+             linetype="dotted"))+
+  geom_segment( aes(x=lighthouse, 
+                    xend=lighthouse, 
+                    y=0, 
+                    yend=word_counts 
+                  )) +
+  geom_point( size=3, color= 1:21, fill=2:22, alpha=1, shape=22, stroke=2) + #"\u26EF" for a lighthouse
+ #geom_point(aes(y = 0, size=3, color=color_start1, fill=color_start2, alpha=1,  stroke=3), shape=22) +
+   # geom_text(aes(label = word_counts), hjust = 1, nudge_y = -0.5, color = "white") +
+  geom_text(aes(label = lighthouse),
+            y = 100, 
+            nudge_y = -400,
+            hjust = 0, 
+            vjust = -0.4,
+            #position = position_stack(vjust = 0),
+            color = 'black') +
+  # scale_x_discrete(breaks = 10000:10021) +
+  coord_flip() +
+  ylab('Word Count') +
+  xlab('') +
+  #theme_void() +
+  theme( 
+  plot.title = element_text(color="black", 
+                            size=12, 
+                            face="bold.italic"),
+  axis.title.x = element_text(size = 10, face = 'bold'), 
+  axis.title.y = element_text(size=10, face="bold"),
+ # axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+  legend.position = 'none')  
+)
+
+
+p <- ggplotly(g, tooltip = c("text"))
+
+
+onRender(
+  p, "
+  function(el) {
+    el.on('plotly_click', function(d) {
+      var url = d.points[0].customdata;
+      window.open(url);
+    });
+  }
+"
+)
+
+
+```
+
+
+
+```{r, eval = F, echo = F}
+
+
+(p <-  word_counts %>% 
+  ggplot(aes(x= seq_along(lighthouse) %>% rev, 
+             y=-word_counts,
+             linetype="dotted"))+
+  geom_segment( aes(x=lighthouse, 
+                    xend=lighthouse, 
+                    y=0, 
+                    yend=-word_counts),
+                colour = 'white',
+                linewidth = 1
+                  ) +
+  geom_point( size=3, 
+              color= "#ff9f54",  
+              #fill = "black",
+              alpha=1, 
+              shape="\u26EF",
+              stroke= 5) + 
+ #geom_point(aes(y = 0, size=3, color=color_start1, fill=color_start2, alpha=1,  stroke=3), shape=22) +
+   # geom_text(aes(label = word_counts), hjust = 1, nudge_y = -0.5, color = "white") +
+  geom_text(aes(label = lighthouse),
+            y = 0, 
+           # nudge_y = -400,
+            hjust = "inward", 
+            #vjust = -0.4,
+            #position = position_stack(vjust = 0),
+            color = 'black',
+            fontface = "bold") +
+  # scale_x_discrete(breaks = 10000:10021) +
+  coord_flip() +
+   scale_y_reverse(NULL, breaks = NULL) +#
+   scale_x_discrete(breaks = letters[1:21] )+
+  # scale_y_continuous(labels = NULL
+  #   # labels = ~ as.character(-breaks)
+  #   ) +
+  ylab('Word Count') +
+  xlab('') +
+  # theme_economist() +
+    theme( 
+  plot.title = element_text(color="black", 
+                            size=12, 
+                            face="bold.italic"),
+  axis.title.x = element_text(size = 10, face = 'bold'), 
+  axis.title.y = element_text(size=10, face="bold"),
+ # axis.text.x = element_blank(),
+  axis.text.y = element_blank(),
+ axis.ticks.y=  element_blank(),
+ panel.background = element_rect(fill = "seagreen1"), ##54ff9f colour
+ plot.background = element_rect(fill = "seagreen1"),
+  legend.position = 'none')  
+)
+
+
+
+base + theme(plot.background = element_rect(fill = "seagreen1", colour = NA))
+base + theme(panel.background = element_rect(fill = "seagreen1"))
+
+
+```
+
+
+
+```{r eval = F, echo = F}
+library(forcats)
+word_counts %>% 
+ ggplot(aes(x= seq_along(lighthouse) %>% rev, 
+             y=word_counts,
+             linetype="dotted"))+
+  geom_segment( aes(x=lighthouse, 
+                    xend=lighthouse, 
+                    y=0, 
+                    yend=word_counts 
+                  )) +
+  geom_point( size=3, color= 1:21, fill=2:22, alpha=1, shape="\u26EF", stroke=8) #+
+ # geom_point(y = 0, size=3, color="red", fill=alpha("orange", 0.3), alpha=1, shape=22, stroke=2) 
+
+word_counts %>% 
+  ggplot(aes(y = word_counts, 
+             fill = 'white', #fill = word_counts,
+             x = lighthouse ,
+             text = lighthouse,
+         customdata = link)
+         )+
+  geom_bar(stat = 'identity') +
+  coord_flip()
+
+```
+
+
+
+```{reval = F, echo = F}
 
 
 # Data frame

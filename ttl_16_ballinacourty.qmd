@@ -1,5 +1,5 @@
 ---
-title: "Ballinacourty, Dungarvan"
+title: "Ballinacourty (Dungarvan)"
 format: html
 editor: visual
 ---

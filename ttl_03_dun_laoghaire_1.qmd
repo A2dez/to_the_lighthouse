@@ -1,5 +1,5 @@
 ---
-title: "Dun Laoghaire 1"
+title: "Dún Laoghaire 1"
 editor: visual
 ---
 

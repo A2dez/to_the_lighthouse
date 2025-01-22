@@ -1,5 +1,5 @@
 ---
-title: "Haulbowline, Carlingford Lough"
+title: "Haulbowline (Carlingford Lough)"
 format: html
 editor: visual
 ---

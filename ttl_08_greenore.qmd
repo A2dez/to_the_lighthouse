@@ -1,5 +1,5 @@
 ---
-title: "Greenore"
+title: "Greenore (Carlingford Peninsula)"
 format: html
 editor: visual
 ---
