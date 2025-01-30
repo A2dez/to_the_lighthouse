@@ -2,12 +2,26 @@ project:
   type: book
   #always_allow_html: true
 book:
-  title: "To the lighthouse, vol 1: The Mild non-Atlantic Way"
+  title: "To the lighthouse"
+  subtitle: "Vol 1: The Mild, non-Atlantic Way"
   author: "Des Ryan"
-  date: "August 2022 - October 2024"
-  
+  reader-mode: true
+  date: "August 2022"
+  cover-image: images/hook_head_photographer.jpeg
+  #favicon: cover.jpg
+  site-url: https://ggplot2-book.org/
+  repo-url: https://github.com/hadley/ggplot2-book/
+  repo-branch: master
+  #repo-actions: [edit, issue]  
+  page-footer:
+    left: |
+      To the lighthouse is an ongoing effort write about cycling to every lighthouse on or off the Island of Ireland
+      written by Des Ryan and supported by you.
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.  
   chapters:
     - index.qmd
+    #- contents_creation.qmd
     - part: "**Part 1. The mild, non-Atlantic Way**"
       chapters:
       - ttl_01_poolbeg.qmd
@@ -34,11 +48,20 @@ book:
     - part: "**Part 2. The Wild Atlantic Doris**"
       chapters:
       - ttl_14_black_head.qmd
-  
-bibliography: references.bib
+
+
 format:
-  html:
-    theme: minty
   pdf:
-    documentclass: scrreprt
+    documentclass: scrbook
+  html:
+    theme:
+      - cosmo
+    code-link: true
+    author-meta: "Des Ryann"
+    #include-in-header: "ga_script.html"
+    callout-appearance: simple
+    
 editor: visual
+
+
+bibliography: references.bib

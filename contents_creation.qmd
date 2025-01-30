@@ -3,6 +3,8 @@ title: "Table of Contents"
 encoding: "UTF8"
 ---
 
+![*The pier out to Poolbeg Lighthouse is less than an hour's walk from Dublin City Centre.*](images/sunrise_poolbeg_2023-02-05%20at%2010.54.23.jpeg){alt="The pier out to Poolbeg Lighthouse is less than an hour's walk from Dublin City Centre."}
+
 ```{r, eval = F, echo = F}
 PDF issues
  - lighthouse / UTF symbols
@@ -63,16 +65,12 @@ To learn
 
 ```
 
-
-
 ```{r, , echo = F, message = F, warning = F}
 #**Constants**
 yaml_file = '_quarto.yml'
 ttl_filepath_regex = "ttl_\\d{1,2}.*?\\.qmd"
 url_base = "https://a2dez.github.io/to_the_lighthouse"
 ```
-
-
 
 ```{r, message = F, echo = F, message = F, warning = F}
 library(stringr)
@@ -143,8 +141,6 @@ word_counts <-left_join(word_counts, lighthouse_counties, by = 'lighthouse') %>%
 
 ```
 
-
-
 ```{r  echo = F, message = F, warning = F}
 linewidth = 0.75
 explanation = "The graphic doubles up as a table of contents and a scatter plot of how many words are in each chapter, shown by the orange lighthouse symbol and the thin horizontal white lines. The chapters get longer as the book progresses, with a few outliers, partly because I cycle further and partly because I amass a wider range of things to say, a habit that may result in some quality bleaching. This is a common problem among artists. Books get longer, songs explode in length, double albums get released. Sometimes ambition is the driving force, sometimes it's mediocrity clogging up well-worn terrain. I fear the latter so I decided to put a donk on the project until it feels fresh for me again."
@@ -209,9 +205,7 @@ word_counts %>%
 #        dpi = 300, limitsize = TRUE, ...)
 ```
 
-
 "The graphic doubles up as a table of contents and a scatter plot of how many words are in each chapter, shown by the orange lighthouse symbol and the thin horizontal white lines. The chapters get longer as the book progresses, with a few outliers, partly because I cycle further and partly because I amass a wider range of things to say, a habit that may result in some quality bleaching. This is a common problem among artists. Books get longer, songs explode in length, double albums get released. Sometimes ambition is the driving force, sometimes it's mediocrity clogging up well-worn terrain. I fear the latter so I decided to put a donk on the project until it feels fresh for me again."
-
 
 ```{r, eval = F, echo = F}
 #glimpse(word_counts)
@@ -274,8 +268,6 @@ word_counts %>%
 )
 ```
 
-
-
 ```{r, eval = F, echo = F}
 
 #View(word_counts)
@@ -324,7 +316,6 @@ onRender(
 "
 )
 ```
-
 
 ```{r, eval = F, echo = F}
 (g <- word_counts %>% 
@@ -379,8 +370,6 @@ onRender(
 
 
 ```
-
-
 
 ```{r, eval = F, echo = F}
 
@@ -444,8 +433,6 @@ base + theme(panel.background = element_rect(fill = "seagreen1"))
 
 ```
 
-
-
 ```{r eval = F, echo = F}
 library(forcats)
 word_counts %>% 
@@ -471,8 +458,6 @@ word_counts %>%
   coord_flip()
 
 ```
-
-
 
 ```{reval = F, echo = F}
 
