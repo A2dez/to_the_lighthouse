@@ -1,16 +1,35 @@
 project:
   type: book
   #always_allow_html: true
+
+format:
+  pdf: 
+    documentclass: scrbook
+    # include-in-header: preamble.tex
+    # fontfamily: libertinus
+  html:
+    theme:
+      - cosmo
+    code-link: true
+    author-meta: "Des Ryan"
+    #include-in-header: "ga_script.html"
+    callout-appearance: simple
+  # epub:
+  #   css: epub-styles.css
+  #   epub-cover-image: epub-cover.png
+  
+ 
 book:
   title: "To the lighthouse"
-  subtitle: "Vol 1: The Mild, non-Atlantic Way"
+  subtitle: "Cyling to every lighthouse in Ireland"
+  subtitle: "Vol 1: The mild, non-Atlantic way"
   author: "Des Ryan"
   reader-mode: true
   date: "28 August 2022"
   cover-image: images/cover_2025_02_26_IMG_20230729_090357_transplanted_bike.png
   #favicon: cover.jpg
-  site-url: https://ggplot2-book.org/
-  repo-url: https://github.com/hadley/ggplot2-book/
+  site-url: https://a2dez.github.io/to_the_lighthouse
+  repo-url: https://github.com/A2dez/to_the_lighthouse
   repo-branch: master
   #repo-actions: [edit, issue]  
   page-footer:
@@ -50,17 +69,7 @@ book:
       - ttl_14_black_head.qmd
 
 
-format:
-  pdf:
-    documentclass: scrbook
-  html:
-    theme:
-      - cosmo
-    code-link: true
-    author-meta: "Des Ryann"
-    #include-in-header: "ga_script.html"
-    callout-appearance: simple
-    
+
 editor: visual
 
 
