@@ -2,11 +2,23 @@
 title: "Wicklow 200"
 ---
 
-**Intro**
+### **Intro**
 
 -   My mother has cycled across four continents and still says that the Wicklow 200 is the toughest cycle she has ever done. It prepared her goodo for cycling over the Rockies when she went across The States in ´99. She did seven Wicklow 200s and my dad did most of them with her, so doing it has been in the back of my mind since I was a chunfla.
 
+    -   **She did it seven times during the 90s and my dad did**
+
+    -   **and my dad did it seven times in the 90s during they cycling heyday**
+
+    -   **She did it seven times, usually with my dad who became her main cycling partner for ten years, during their 50s and 60s. Taking on the challenge has been on my mind**
+
+    -   -         
+
 -   My mate Paul mentioned it to me a few months ago, said he had signed up for the Wicklow 100. I've slogged through a hundy k plenty of times so I knew it had to be the 200 for me. Little did I know how big the jump would be from 100k to 200, especially when you throw that many hills under your bike.
+
+-    ***I didn’t know that it would be so difficult to make the jump from 100k to 200k, at least when climbing. I had never even cycled 100 miles before and yet on their trips across the world, they’d do that every day, six days a week, for two or four or even seven weeks when they went across Australia.***
+
+#### Route
 
 -   Today’s route is up and down all day with 3,400m of elevation. In pro racing, that'd be 80% of **Liege**-Bastogne-**Liege** (one of the top five one-day races or Monuments)
 
@@ -18,7 +30,7 @@ title: "Wicklow 200"
 
 -   The first 20k is a flat warm up, with a looparooney round the Blessington lakes before climbing 20k up to the Sally Gap, slow and steady til the last bit.
 
--   Training
+#### **Training**
 
 -   It’s been a lonely time on the bike of late. Normally I go out for 2 or 4 hours on my own and that’s a nice break from Life, The Universe and Everything. But last week was an all-day jobbie, a 140k round trip to Decathlon, via the mountains. Off at 9am, home at 7pm with lunch and dinner in town.
 
@@ -26,7 +38,7 @@ title: "Wicklow 200"
 
 -   
 
-**Saturday**
+### **Saturday**
 
 -   I did far too much yesterday. I was up at 7am writing a fundraising page and by 9pm I was still cooking pancakes for the road today. Then I misplaced my phone and blew the house down looking for it. I told my wife I'd have to steal hers for the day. It's on the list of essentials. Helmet. Essential. Working bike. Essential. Phone. Essential. Someone is going to need a mechanic or an ambo. And I've been given number 1313, so there's double the odds it'll be me.
 
@@ -36,13 +48,9 @@ title: "Wicklow 200"
 
 -   *Me and the chunfla grab nosebag in the Old Mill although Lonster have already destroyed Glasgow agin we arrive so the very long wait is interminable. We pop in to an old friend of mine in Knocklyon so it's after 7 when we get home. In theory that's good but I'm a bundle of excess energy. Pure nerves. I haven't cycled all week. I haven't felt like this since they day we emigrated to America and I was bricking it that The Yanks wouldn't let me on the plane. Im there making the rest of the pancakes for the cycle in the morning, not unwinding, and before I know it I can't find my Tony Blair. I hate looking for things. I just go about my business until it shows up but it's bedtime now and I'm offski at 5am so I have no business to go about. Instead I blow the house down, piss everyone off, tell me wife I have to take her Tony tomorrow and get to sleep after 11 bells. I'm up at half four, which is a good thing cos my quick breakfast takes longer than I want it to.*
 
-#### Everybody in the place (Let´s Go)
+-   *I don’t sleep til 1am cos I’m wired and I have my alarm set for 7.  I wake up at like half seven, plonk the kids in the car and lob a slice of toast at them. On the way to school, my son says, Daddy, when I grow up I want to do a cycle like that too. f*
 
--   Similar to clubbing
-
-    -   yuuuge love buzz
-
-<!-- -->
+### Drive over
 
 -   The drive from Wicklow Town to Blessington is sixty minutes across the mountains or half a loop around them so I take the directo path via Laragh and the Wicklow Gap. I'm hoping to see what the set up is like for thousands of people to pass through but you wouldn't know anything is going on. I stop at the Glendalough Cafe and drop off a saddle bag of food and spare gear, in case I get drenched in the first 65k. The traffic in Russborough House is fine for me, coming from nowheresville, but there's a backlog coming from Dublin and everything is delayed.
 
@@ -56,21 +64,39 @@ title: "Wicklow 200"
 
 <!-- -->
 
--   I don’t sleep til 1am cos I’m wired and I have my alarm set for 7.  I wake up at like half seven, plonk the kids in the car and lob a slice of toast at them. On the way to school, my son says, Daddy, when I grow up I want to do a cycle like that too. f
+-   
 
 -   It’s the busiest week of the year in work. Waddaya gonna do? I
 
 -   
 
--   She did it seven times during the 90s and my dad did
+-   
 
--   and my dad did it seven times in the 90s during they cycling heyday
+-   
 
--   She did it seven times, usually with my dad who became her main cycling partner for ten years, during their 50s and 60s. Taking on the challenge has been on my mind
+-   Everybody in the place (Let´s Go)
 
--   -          I didn’t know that it would be so difficult to make the jump from 100k to 200k, at least when climbing. I had never even cycled 100 miles before and yet on their trips across the world, they’d do that every day, six days a week, for two or four or even seven weeks when they went across Australia.
+    -   Similar to clubbing
 
-Sally Gap
+        -   yuuuge love buzz
+        -   Born Slippy.
+        -   
+
+-   clontarf triathlong fella
+
+-   Paul behind
+
+-   found a fast wheel and followed
+
+    -   im also worried about the cut off time for the 200k
+
+    -   Whizzing past people, not doing the work.
+
+-   I feel bad. I know it's wrong, I know I'm going to pay for it later, but it feels so goooood
+
+#### Sally Gap
+
+-   ascent, people slow, pass some then they pass me. lucan fella. slow enough to analyse people's bikes etc. would love a photo
 
 -   Stop to see if there's any water but there's not
 
@@ -88,10 +114,11 @@ Sally Gap
 
 ### **Everybody in the place (155 and rising)**
 
--   The tunes
+-   **A sea of people all equal, smiles in front and behind me**
 
+```{=html}
 <!-- -->
-
+```
 -   Great buzz,
 
 -   Car might come the other direction maybe even beep us all off the road as
@@ -114,29 +141,17 @@ Sally Gap
 
 -   I now need to think of the people of Gaza
 
+-   Dishing out sambos is a fella my age yet he's as lean as a raver and he's bouncing in time to the beats. Any Yokes, I ask him, and he says to wait til later. I wouldn't be the first. Poor aul Tom Simpson revved up on speed and booze, dying on Mont Ventoux during the Tour de France. The lads [used to raid the Brasseries](https://www.youtube.com/watch?v=7UhT6-GntcY) and booze away on the bike. I stall over to the water taps and put a electrolyte tab in either bottle. One per bottle said Barry O'D. I check the clock. Half 10. Another fifteen minutes and I'd miss the cut off and be condemned to the half-ass version. As I mount my bike I see Paul and Shane again, ready to leave. All the effort I put in and I gained nothing. I know I'm gonna suffer later.
+
+-   The exit from Laragh is lonely and my lungs are weak. If I'd known I'd've gotten an inhaler in the ambo but it's too late to go back. I get asthma doing exercise in the cold. Maybe four degrees or lower. The cold and sweat musta gotten into me on the fast descent. I call my wife and she has just found my phone so I ask her to bring an inhaler. Meanwhile, back on the road.
+
 ------------------------------------------------------------------------
 
-Tinahely 125k
+-   
 
-**Break on through (to the other side)**
+-   
 
--   humbling experience
-
--   overdid it too early
-
--   75k to go. 1500m climbing. Hope it wont be as lonely as the middle third.
-
--   found a fast wheel and followed
-
-    -   clontarf triathlong fella
-
-    -   Paul behind
-
-    -   I feel bad. I know it's wrong, I know I'm going to pay for it later, but it feels so goooood
-
-    -   im also worried about the cut off time for the 200k
-
-    -   Whizzing past people, not doing the work.
+    -   
 
     -   Didn´t feel it til after Laragh
 
@@ -166,6 +181,16 @@ Tinahely 125k
 
 -   Back on the road is a miserable place. The people of my level have all pushed on, ten minutes ahead now and there are only two types of rider left on the road. Fellas who started late and are too fast for me. And fellas who haven't got the legs. Some of them will be getting picked up by the van soon. I listen to a few tales of woes and offer up my wheel. But they can't stay with me or they don't want to. A lot of people are hungry now. I give one lad a chunk of cheese and another a slug of Lucozade. There's been a desperate lack of water today. There was none on top of Sally Gap and none on top of Croghan Mountain. I can't imagine the horror if it was warm. The strongest cyclists might be
 
+### Tinahely 125k
+
+**Break on through (to the other side)**
+
+-   humbling experience
+
+-   overdid it too early
+
+-   75k to go. 1500m climbing. Hope it wont be as lonely as the middle third.
+
 **Tinahely - Slieve Maan**
 
 -   I knew that the 20k from Tinahely to Slieve Maan would be harder than it looked on the profile but I never knew how wrecked I was going to be.
@@ -184,7 +209,7 @@ Tinahely 125k
 
 ------------------------------------------------------------------------
 
--   A sea of people all equal, smiles in front and behind me
+-   
 
 -   *'Cause me and you are the same\
     [I've known you all my life, I don't know your name](https://genius.com/16952783/The-streets-weak-become-heroes/Ive-known-you-all-my-life-i-dont-know-your-name)\
@@ -204,7 +229,7 @@ Tinahely 125k
 
 -   About a kilometre before Slieve Mann, I hear someone is on my wheel and I’m delighted to have company at long last as I start the ascent. Little do I realise how slow and sombre the ordeal will be. How spiritual. How intimate. How memorable.
 
--   Slieve Mann is hedgeless and open, making the road look flatter than the 12% ramp which has just smashed into us. Up ahead is a scattered procession of wobblers. Twenty or fifty of them, I can’t count. Near in space, far in time. My legs are burning and my lungs are panting but my head is clear enough to drink in the horror of the task. The wheel behind me grinds a yard ahead, the final member of the Latin cycling club, dressed in angelic white, a tiny body on a tiny bike, cycling so slowly and serenely that I can only surrender to her rhythm. Cycling backwards, just ahead, is the elder of the two country lads, God-like now with his grey beard and long grey hair, close enough to touch. His pacing is less steady. There are three of us now, together, like kids running through the meadow, holding hands. Like mourners at a funeral. Silent. Sombre. At work. Proceeding. I tell God it’s like a slow bicycle race but he shushes me. Time for work, he says. The whole mountain is ecclesiastical in its silence, as if none of us were here. The funereal procession continues. Time has stopped. Head down. Eyes no further than the wheel ahead. Matching rhythms. As intimate as intercourse. As brutal as rugby. As surreal as mourning in unison. But no one else can do it for you. No teammate, no partner, no other force can carry your cross. Only you can push onwards and upwards. Kadunk, kadunk, kadunk, kadunk, kadunk, kadunk, kadunk. Someone glides past us. We pass someone. I whisper well done into one lad’s ear and he whispers back. The climb flattens a tad and I manage a sneaky photo of God and the granite ridge beyond.
+-   Slieve Mann is hedgeless and open, making the road look flatter than the 12% ramp which has just smashed into us. Up ahead is a scattered procession of wobblers. Twenty or fifty of them, I can’t count. Near in space, far in time. My legs are burning and I'm panting llike a dog but my head is clear enough to drink in the horror of the task. The wheel behind me grinds a yard ahead, the final member of the Latin cycling club, dressed in angelic white, a tiny body on a tiny bike, cycling so slowly and serenely that I can only surrender to her rhythm. Cycling backwards, just ahead, is the elder of the two country lads, God-like now with his grey beard and long grey hair, close enough to touch. His pacing is less steady. There are three of us now, together, like kids running through the meadow, holding almost hands. Like mourners at a funeral. Silent. Sombre. Proceeding. I tell God it’s like a slow bicycle race but he shushes me. Time for work, he says. The whole mountain is ecclesiastical in its silence, as if none of us were here. The funereal procession continues. Time has stopped. Head down. Eyes no further than the wheel ahead. Matching rhythms. As intimate as intercourse. As brutal as rugby. **As surreal as mourning in unison.** But no one else can do it for you. No teammate, no partner, **no other force can carry your cross**. Only you can push onwards and upwards. The downstroke a different beat to the upstroke. Kadunk, kadunk, kadunk, kadunk, kadunk, kadunk, kadunk. Someone glides past us. We pass someone. I whisper well done into one lad’s ear and he whispers back. The climb flattens a tad and I manage a sneaky photo of God and the granite ridge beyond.
 
 -   **a consistent pace that I can maintain without falling off.**
 
