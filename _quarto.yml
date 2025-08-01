@@ -14,15 +14,15 @@ format:
     author-meta: "Des Ryan"
     #include-in-header: "ga_script.html"
     callout-appearance: simple
-  # epub:
-  #   css: epub-styles.css
-  #   epub-cover-image: epub-cover.png
+  epub:
+   css: epub-styles.css
+    # epub-cover-image: epub-cover.png
   
  
 book:
   title: "To the lighthouse"
-  subtitle: "Cyling to every lighthouse in Ireland"
-  subtitle: "Vol 1: The mild, non-Atlantic way"
+  subtitle: "Cyling to every lighthouse in Ireland. Vol 1: The mild, non-Atlantic way"
+  #subtitle: "Vol 1: The mild, non-Atlantic way"
   author: "Des Ryan"
   reader-mode: true
   date: "28 August 2022"
