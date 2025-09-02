@@ -63,6 +63,7 @@ book:
       - ttl_19_ballycotton.qmd
       - ttl_20_roches_point.qmd
       - ttl_21_blackrock_castle_cobh.qmd      
+      - tt1_24_old_head_of_kinsale.qmd
       
     - part: "**Part 2. The Wild Atlantic Doris**"
       chapters:
