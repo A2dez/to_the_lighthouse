@@ -3,7 +3,7 @@ title: "Poolbeg"
 editor: visual
 ---
 
-![*Today I learnt that if you chase the light then life will bring you lighthouses*](images/north_south_bull_in_action_compressed.jpeg){alt="The ideal lighthouse is visible from afar but hard to get to. In order to stand up to fierce marine weather, they need to be big and strong, but these ones are far away."}
+![The ideal lighthouse is visible from afar but hard to get to. In order to stand up to fierce marine weather, they need to be big and strong, but these ones are far away.](images/north_south_bull_in_action_compressed.jpeg)
 
 ***0759, Sunday 28 August, 2022***
 
